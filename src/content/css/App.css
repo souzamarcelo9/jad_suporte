@@ -15,12 +15,19 @@
 
 body{
   font-family: neris;
-}
+} 
+/* body {
+  margin: 0;
+  overflow: hidden;
+  font-family: neris;
+} */
 
 header{
-  background: #030303fd;
+  /* background: #030303fd; */
   text-align: center;
   padding-bottom: 4%;
+  /* background: #099420c7; */
+  background-image: url(../imgs/hello_matrix.png); 
 }
 
 div, p{
@@ -34,11 +41,12 @@ div, p{
 }
 
 .panelLogo{
-  background-image: url(../imgs/logo-branca-laranja.png); 
+  /* background-image: url(../imgs/logo-branca-laranja.png);  */
   vertical-align: middle;
-  padding-top: 52%;
-  /* margin-right: 10px; */
-  
+  padding-top: 4%;  
+  width: 50%;
+ margin-left: 10px;
+ margin-left: -150px; 
   
 }
 

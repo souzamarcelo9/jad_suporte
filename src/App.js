@@ -90,12 +90,12 @@ function App() {
       <header>
         <div className="panelLogo" expand="lg">
 
-          { <Container style={{ opacity: 0.0}}>
-                { <img alt="Logo da JAD" src={logoMeio}   /> }
-                
+           { <Container style={{ width: 0.0}}>
+                 { <img alt="Logo da JAD" src={logoLaranja} style={{ width: 1024.0}}t/> }
+                 
 
             </Container> 
-          }
+           }
         </div>
       </header>
       <div id="quem-somos">
