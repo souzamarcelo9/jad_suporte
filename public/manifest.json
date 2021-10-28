@@ -1,0 +1,25 @@
+{
+  "short_name": "C615 Tecnologia",
+  "name": "C615 Tecnologia S/A - Com objetivo de facilitar o acesso aos serviços de forma rápida e prática no Brasil e no exterior.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo-preto-branco.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo-preto-branco.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

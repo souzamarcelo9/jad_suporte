@@ -1,0 +1,192 @@
+@font-face {
+  font-family: neris;
+  src: url(../fonts/Neris-Thin.otf);
+}
+
+@font-face {
+  font-family: nerisItalic;
+  src: url(../fonts/Neris-ThinItalic.otf);
+}
+
+@font-face {
+  font-family: nerisBold;
+  src: url(../fonts/Neris-Black.otf);
+}
+
+body{
+  font-family: neris;
+}
+
+header{
+  background: #030303fd;
+  text-align: center;
+  padding-bottom: 4%;
+}
+
+div, p{
+  font-size: 20px;
+}
+
+
+.logoCorpo{
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.panelLogo{
+  background-image: url(../imgs/logo-branca-laranja.png); 
+  vertical-align: middle;
+  padding-top: 52%;
+  /* margin-right: 10px; */
+  
+  
+}
+
+h2 {
+  font-family: nerisBold;
+}
+
+h2::before{
+  position: relative;
+  content: ' ';
+  padding: 10px;
+  font-size: 0px;
+  border: 1px solid #064e12;
+  background: #064e12;
+  margin-right: 10px;
+  vertical-align: middle;
+
+}
+
+h3{
+  font-family: neris;
+  font-size: 20px;
+  background: #064e12;
+  color: #FFF;
+  text-align: right;
+  width: 30%;
+  background-image: url("/src/content/imgs/s.png");
+  margin-right: 50px;
+  padding:5px 4% 5px 1%;
+  float: left;
+}
+
+.langs img{
+  height: 20px;
+  margin:5px 5px;
+  cursor: pointer;
+  background-image: url("/src/content/imgs/s.png");
+}
+
+#quem-somos{
+  background: #424243;
+  color: #FFF;
+  padding-bottom:60px;
+}
+
+#onde-atuamos{
+  background: #FFF;
+
+}
+
+#onde-atuamos li{
+  display: table;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+#onde-atuamos ul{
+  padding:0px;
+  margin: 0px;
+}
+
+#onde-atuamos .customRow{
+  width: 80%;
+  margin:0 auto;
+}
+
+.descricaoProduto{
+  font-family: nerisItalic;
+  float: left;
+  width: 63%
+}
+ 
+#fale-conosco{
+  border-top: 10px solid #FFF;
+  background: #424243;
+  padding-bottom: 50px;
+}
+
+#produtos{
+  border-top: 10px solid #FFF;
+  background: #030303;
+  padding-bottom: 20px;
+}
+
+#fale-conosco{
+  color: #FFF !important; 
+}
+#produtos{
+  color: #FFF !important; 
+}
+
+#fale-conosco .col-sm:nth-child(1){
+  text-align: right;
+  border-right: 1px solid #064e12;
+}
+
+.row{
+  padding: 70px 10px 30px 10px;
+}
+
+
+.customRow{
+  padding-top: 20px;
+}
+
+.navbar-toggler{
+  border:0px;
+}
+
+.navbar-light .navbar-toggler-icon{
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+ }
+
+.nav-link
+{
+  font-family: nerisBold;
+  font-size:15px;
+  color:#FFF !important;
+}
+
+.navbar-nav
+{
+  text-align: center;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+  .descricaoProduto{
+    float: left;
+    width: 90%;
+    margin:10px;
+  }
+  h3{
+    width: 90%;
+    margin:10px;
+  }
+
+  h2{
+    width:100%;
+  }
+
+ 
+}
+@media only screen and (max-width: 590px) 
+{
+  #fale-conosco .col-sm:nth-child(1){
+    text-align: left;
+    border-right:  0px solid #064e12;
+  }
+}
+
