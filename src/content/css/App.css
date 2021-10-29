@@ -172,6 +172,10 @@ h3{
   text-align: center;
 }
 
+.resolution{
+  width:100%;
+}
+
 @media only screen and (max-width: 1000px) 
 {
   .descricaoProduto{
@@ -195,6 +199,20 @@ h3{
   #fale-conosco .col-sm:nth-child(1){
     text-align: left;
     border-right:  0px solid #064e12;
+  }  
+
+}
+
+@media only screen and (min-width: 400px) and (max-width: 767px)
+{
+  .panelLogo{    
+    text-align: center;
+    padding-bottom: 4%;
+    background-image: url(../imgs/jad480.png); 
   }
+  .resolution{
+    width:400px;
+  }
+
 }
 

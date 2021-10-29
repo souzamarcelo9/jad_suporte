@@ -91,8 +91,9 @@ function App() {
         <div className="panelLogo" expand="lg">
 
            { <Container style={{ width: 0.0}}>
-                 { <img alt="Logo da JAD" src={logoLaranja} style={{ width: 1024.0}}t/> }
-                 
+           {/* <div className="resolution"> */}
+                 { <img alt="Logo da JAD" src={logoLaranja} style={{ width: 500 }}/> }
+          {/* </div>     */}
 
             </Container> 
            }
