@@ -157,18 +157,18 @@ function App() {
             <Col ><h2>{lang.menu.produtos}</h2></Col>
           </Row>
           <Row className="fale-conosco" >
-            <Col ><h5>Clique para visualizar uma prévia dos sistemas:</h5></Col>
+            <Col ><h5>{lang.produtos.text2}</h5></Col>
           </Row>
           <Row className="customRow">
                         
             <Row className ="customRow" style={{paddingRight: 80}}>
-            <Col><a href="https://www.youtube.com/watch?v=v5nedwFnQEE"><img alt="congasp" src={congasp} style={{ width: 80,height:60}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=v5nedwFnQEE')}>FINANCEIRO</Text></a></Col>
-            <Col><a href="https://www.youtube.com/watch?v=0JO28hJSguk"><img alt="medicom" src={medico} style={{ width: 60,height:60}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=0JO28hJSguk')}>MÉDICO</Text></a></Col>
-            <Col><a href="https://www.youtube.com/watch?v=R5UJYPsgPpc"><img alt="loja" src={ecomerce} style={{ width: 70,height:60}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('wa.me/message/OU2GVJMYI2J6E1')}>E-LOJA</Text></a></Col>
-            <Col><a href="https://youtu.be/OMbWfy9thLY"><img alt="maxlogistica" src={logistic} style={{ width: 60,height:58}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://youtu.be/OMbWfy9thLY ')}>LOGÍSTICA</Text></a></Col>
-            <Col><a href="https://youtu.be/KzPmznbQ8BY"><img alt="food" src={food} style={{ width: 60,height:58}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://youtu.be/KzPmznbQ8BY')}>FOOD</Text></a></Col>
-            <Col><a href="https://www.youtube.com/watch?v=zJza3wgUy9Q"><img alt="banco" src={bank} style={{ width: 60,height:58}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=zJza3wgUy9Q')}>DIG.BANK</Text></a></Col>
-            <Col><a href="https://www.youtube.com/watch?v=RTUPBXj7FGw&t=83s"><img alt="logcom" src={games} style={{ width: 60,height:58}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=RTUPBXj7FGw&t=83s')}>LOCADORA</Text></a></Col>
+            <Col><a href="https://www.youtube.com/watch?v=v5nedwFnQEE"><img alt="congasp" src={congasp} style={{ width: 80,height:60}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=v5nedwFnQEE')}>{lang.produtos.text3}</Text></a></Col>
+            <Col><a href="https://www.youtube.com/watch?v=0JO28hJSguk"><img alt="medicom" src={medico} style={{ width: 60,height:60}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=0JO28hJSguk')}>{lang.produtos.text4}</Text></a></Col>
+            <Col><a href="https://www.youtube.com/watch?v=R5UJYPsgPpc"><img alt="loja" src={ecomerce} style={{ width: 80,height:60}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=R5UJYPsgPpc')}>{lang.produtos.text5}</Text></a></Col>
+            <Col><a href="https://youtu.be/OMbWfy9thLY"><img alt="maxlogistica" src={logistic} style={{ width: 60,height:58}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://youtu.be/OMbWfy9thLY ')}>{lang.produtos.text6}</Text></a></Col>
+            <Col><a href="https://youtu.be/KzPmznbQ8BY"><img alt="food" src={food} style={{ width: 60,height:58}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://youtu.be/KzPmznbQ8BY')}>{lang.produtos.text7}</Text></a></Col>
+            <Col><a href="https://www.youtube.com/watch?v=zJza3wgUy9Q"><img alt="banco" src={bank} style={{ width: 60,height:58}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=zJza3wgUy9Q')}>{lang.produtos.text8}</Text></a></Col>
+            <Col><a href="https://www.youtube.com/watch?v=RTUPBXj7FGw&t=83s"><img alt="logcom" src={games} style={{ width: 60,height:58}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=RTUPBXj7FGw&t=83s')}>{lang.produtos.text9}</Text></a></Col>
 
           </Row>
           

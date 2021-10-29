@@ -36,6 +36,16 @@ export default
             {nome : 'CURSOS VIRTUAIS', valor: `Plataforma de cursos on line , com direito a suporte via zoom,whats app, diretamente com nosso time - SAP, JAVA,.NET,ETC`}
         ]
 
+    },
+    produtos:{
+        text2: 'Clique para visualizar uma prévia dos sistemas:',
+        text3: 'Financeiro',
+        text4: 'Médico',
+        text5: 'E-commerce',
+        text6: 'Logística',
+        text7: 'Ifood',
+        text8: 'Banco Digital',
+        text9:'Locadora'      
     }
 
 }
