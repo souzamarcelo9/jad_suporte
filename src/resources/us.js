@@ -5,7 +5,7 @@ export default
         quemSomos: 'ABOUT US',
         ondeAtuamos: 'WHAT WE DO',
         faleConosco: 'CONTACT US',
-        products:'PRODUCTS'
+        produtos:'PRODUCTS'
     },
     quemSomos: {
         text1: `JAD Applications was born in January 2019 with the aim of helping
@@ -22,8 +22,10 @@ export default
         according to your business, e-commerce, ERP's, etc.`,
     },
     ondeAtuamos: {
-        text1: `Here follows a brief presentation of our services, all with warranty:`,
-        produtos : [
+        text1: 'Here follows a brief presentation of our services, all with warranty:',
+        
+        produtos : 
+        [
             {nome : 'JADS SUPPORT', valor: `First online company at the global level specially designed for professional support and bug fixing.`},
             {nome : 'IMPLEMENTATION', valor: `We install and configure your applications from scratch,SAP S/4 HANA,JAVA,.NET,REACT NATIVE, FLUTTER,BD'S.`},
             {nome : 'E-COMMERCE', valor: `Service platform for creating virtual stores.`},
@@ -33,6 +35,17 @@ export default
             {nome : 'VIRTUAL TRAINING', valor: `Online course platform, entitled to support via zoom,whats app, directly with our team - SAP, JAVA,.NET,ETC`}
         ]
 
+    },
+    produtos:{
+        text2: 'Click here to display a few previews of our products:',
+        text3: 'Financial',
+        text4: 'Medical',
+        text5: 'E-commerce',
+        text6: 'Logistics',
+        text7: 'Ifood',
+        text8: 'Digital Bank',
+        text9:'Games'  
     }
+   
 
 }
