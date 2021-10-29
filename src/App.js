@@ -159,8 +159,7 @@ function App() {
           <Row className="fale-conosco" >
             <Col ><h5>{lang.produtos.text2}</h5></Col>
           </Row>
-          <Row className="customRow">
-                        
+          <Row className="customRow">                        
             <Row className ="customRow" style={{paddingRight: 80}}>
             <Col><a href="https://www.youtube.com/watch?v=v5nedwFnQEE"><img alt="congasp" src={congasp} style={{ width: 80,height:60}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=v5nedwFnQEE')}>{lang.produtos.text3}</Text></a></Col>
             <Col><a href="https://www.youtube.com/watch?v=0JO28hJSguk"><img alt="medicom" src={medico} style={{ width: 60,height:60}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=0JO28hJSguk')}>{lang.produtos.text4}</Text></a></Col>
