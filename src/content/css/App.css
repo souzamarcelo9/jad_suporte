@@ -173,7 +173,8 @@ h3{
 }
 
 .resolution{
-  width:100%;
+  width:400px;
+  border-right: 50px
 }
 
 @media only screen and (max-width: 1000px) 
@@ -190,6 +191,10 @@ h3{
 
   h2{
     width:100%;
+  }
+  .resolution{
+    width:1280px;
+    
   }
 
  
@@ -208,11 +213,9 @@ h3{
   .panelLogo{    
     text-align: center;
     padding-bottom: 4%;
-    background-image: url(../imgs/jad480.png); 
+    /* background-image: url(../imgs/jad480.png);  */
   }
-  .resolution{
-    width:400px;
-  }
+  
 
 }
 

@@ -91,9 +91,11 @@ function App() {
         <div className="panelLogo" expand="lg">
 
            { <Container style={{ width: 0.0}}>
-           {/* <div className="resolution"> */}
-                 { <img alt="Logo da JAD" src={logoLaranja} style={{ width: 500 }}/> }
-          {/* </div>     */}
+            {
+                                    
+              <img alt="Logo da JAD" src={logoLaranja} style={{ width:500 }}/>            
+             
+             }    
 
             </Container> 
            }
@@ -165,7 +167,7 @@ function App() {
             <Col><a href="https://www.youtube.com/watch?v=v5nedwFnQEE"><img alt="congasp" src={congasp} style={{ width: 80,height:60}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=v5nedwFnQEE')}>{lang.produtos.text3}</Text></a></Col>
             <Col><a href="https://www.youtube.com/watch?v=0JO28hJSguk"><img alt="medicom" src={medico} style={{ width: 60,height:60}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=0JO28hJSguk')}>{lang.produtos.text4}</Text></a></Col>
             <Col><a href="https://www.youtube.com/watch?v=R5UJYPsgPpc"><img alt="loja" src={ecomerce} style={{ width: 80,height:60}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=R5UJYPsgPpc')}>{lang.produtos.text5}</Text></a></Col>
-            <Col><a href="https://youtu.be/OMbWfy9thLY"><img alt="maxlogistica" src={logistic} style={{ width: 60,height:58}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://youtu.be/OMbWfy9thLY ')}>{lang.produtos.text6}</Text></a></Col>
+            <Col><a href="https://www.youtube.com/watch?v=boUf-wtlXMI"><img alt="maxlogistica" src={logistic} style={{ width: 60,height:58}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://youtu.be/OMbWfy9thLY ')}>{lang.produtos.text6}</Text></a></Col>
             <Col><a href="https://youtu.be/KzPmznbQ8BY"><img alt="food" src={food} style={{ width: 60,height:58}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://youtu.be/KzPmznbQ8BY')}>{lang.produtos.text7}</Text></a></Col>
             <Col><a href="https://www.youtube.com/watch?v=zJza3wgUy9Q"><img alt="banco" src={bank} style={{ width: 60,height:58}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=zJza3wgUy9Q')}>{lang.produtos.text8}</Text></a></Col>
             <Col><a href="https://www.youtube.com/watch?v=RTUPBXj7FGw&t=83s"><img alt="logcom" src={games} style={{ width: 60,height:58}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=RTUPBXj7FGw&t=83s')}>{lang.produtos.text9}</Text></a></Col>
