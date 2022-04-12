@@ -139,6 +139,7 @@ function App() {
             <Col ><h2>{lang.menu.faleConosco}</h2></Col>
           </Row>
           <Row className="customRow">
+            
             <Col sm>Telefones<br />Email</Col>
             <Col sm>+55 21 97954-9810<br />jadsuporte2021@gmail.com</Col>
             
@@ -146,7 +147,7 @@ function App() {
             <Col><img alt="facebook" src={logoFacebook} style={{ width: 50}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.facebook.com/Jardim-Atl%C3%A2ntico-Digital-Suporte-102864572135855')}>facebook</Text></Col>
             <Col><img alt="youtube" src={logoYoutube} style={{ width: 50}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/channel/UCJC_XZtqk1fRs3pQlmSyfTQ')}>youtube</Text></Col>
             <Col><img alt="wapp" src={logoWapp} style={{ width: 50}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('wa.me/message/OU2GVJMYI2J6E1')}>whats'app</Text></Col>
-            <Col><img alt="insta" src={logoInsta} style={{ width: 50}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.instagram.com/souzamarcelooficial/')}>instagram</Text></Col>
+            <Col><img alt="insta" src={logoInsta} style={{ width: 50}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.instagram.com/jadssuporte/')}>instagram </Text></Col>
 
           </Row>
           
