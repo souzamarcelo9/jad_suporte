@@ -12,26 +12,31 @@ import logoJads from './content/imgs/tropical_beach_gif.gif'
 import logoMeio from './content/imgs/s.png'
 import logoFacebook from './content/imgs/facebook-logo-3-1.png'
 import { Linking } from 'react-native'
-import congasp from './content/imgs/financeiro.jpg'
-import medico  from './content/imgs/medicina.png'
+import congasp from './content/imgs/congasp_youtube.png'
+import medico  from './content/imgs/medicon_youtube.png'
 import logoYoutube from './content/imgs/youtube-grey.png'
 import logoWapp from './content/imgs/wapp.png'
-import ecomerce from './content/imgs/ecommerce.png'
-import logistic from './content/imgs/logistic-icon-png-12699.png'
+import ecomerce from './content/imgs/e-commerce.png'
+import logistic from './content/imgs/logistica_youtube.png'
 import logoInsta from './content/imgs/logo-instagram-png-fundo-transparente9.png'
-import food from './content/imgs/food.jpeg'
-import bank from './content/imgs/bank.jpg'
-import games from './content/imgs/games.jpeg'
+import food from './content/imgs/food_youtube.png'
+import bank from './content/imgs/m1bank_yout.png'
+import games from './content/imgs/loc_yout.png'
 import { ImageBackground, StyleSheet, Text, View } from "react-native"
 import {SafeAreaView} from 'react-native';
 //import Gallery from 'react-native-image-gallery';
-
 import ReactPlayer from "react-player"
 //import Video from "react-native-video"
 import multivr from './content/imgs/food.mp4';
 //import {SafeAreaView, ScrollView} from 'react-native';
 //import {SocialIcon} from 'react-native-elements';
 import  {useEffect} from 'react';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+var ReactN = require('react');
+var ReactDOM = require('react-dom');
+var Carousel = require('react-responsive-carousel').Carousel;
+
 
 function _goTo(element) {
   window.scrollTo({
@@ -40,6 +45,7 @@ function _goTo(element) {
     behavior: 'smooth'
   });
 }
+
 
 function App() {
   let lang = null;
@@ -163,7 +169,7 @@ function App() {
           <Row className="fale-conosco" >
             <Col ><h5>{lang.produtos.text2}</h5></Col>
           </Row>
-          <Row className="customRow">                        
+          {/* <Row className="customRow">                        
             <Row className ="customRow" style={{paddingRight: 80}}>
             <Col><a href="https://www.youtube.com/watch?v=v5nedwFnQEE"><img alt="congasp" src={congasp} style={{ width: 80,height:60}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=v5nedwFnQEE')}>{lang.produtos.text3}</Text></a></Col>
             <Col><a href="https://www.youtube.com/watch?v=0JO28hJSguk"><img alt="medicom" src={medico} style={{ width: 60,height:60}}/><br /> <Text style={{color: 'blue'}}onPress={() => Linking.openURL('https://www.youtube.com/watch?v=0JO28hJSguk')}>{lang.produtos.text4}</Text></a></Col>
@@ -176,7 +182,7 @@ function App() {
 
           </Row>
           
-          </Row>
+          </Row> */}
         
 
 {/*             
@@ -193,14 +199,51 @@ function App() {
         videoId={'84WIaK3bl_s'}
       />
     </View> */}
-          
+        <div id="car" >
+          <Carousel showArrows={true} >
+                <div>
+                <a href="https://www.youtube.com/watch?v=v5nedwFnQEE"><img alt="congasp" src={congasp} /><br /> <Text style={{color: 'blue'}}>{lang.produtos.text3}</Text></a>
+                {/* <a href="https://www.youtube.com/watch?v=v5nedwFnQEE"><p className="legend">Financeiro</p></a> */}
+                <p className="legend">Financeiro</p>
+                </div>
+                <div >
+                <a href="https://www.youtube.com/watch?v=0JO28hJSguk"><img alt="medicom" src={medico}/><br /> <Text style={{color: 'blue'}}>{lang.produtos.text4}</Text></a>
+                    <p className="legend">Médico</p>
+                </div>
+                <div >
+                <a href="https://www.youtube.com/watch?v=R5UJYPsgPpc"><img alt="loja" src={ecomerce}/><br /> <Text style={{color: 'blue'}}>{lang.produtos.text5}</Text></a>
+                    <p className="legend">E-comerce</p>
+                </div>
+                <div >
+                <a href="https://www.youtube.com/watch?v=boUf-wtlXMI"><img alt="logistica" src={logistic}/><br /> <Text style={{color: 'blue'}}>{lang.produtos.text6}</Text></a>
+                    <p className="legend">Logística</p>
+                </div>
+                <div >
+                <a href="https://youtu.be/KzPmznbQ8BY"><img alt="food" src={food}/><br /> <Text style={{color: 'blue'}}>{lang.produtos.text7}</Text></a>
+                    <p className="legend">Restaurante</p>
+                </div>
+                <div >
+                <a href="https://www.youtube.com/watch?v=zJza3wgUy9Q"><img alt="banco" src={bank}/><br /> <Text style={{color: 'blue'}}>{lang.produtos.text8}</Text></a>
+                    <p className="legend">Banco Digital</p>
+                </div>
+                <div>
+                   <a href="https://www.youtube.com/watch?v=RTUPBXj7FGw&t=83s"><img alt="logcom" src={games} /><br /> <Text style={{color: 'blue'}}>{lang.produtos.text9}</Text></a>
+                   <p className="legend">Locadora</p>
+                </div>
+          </Carousel>
+         </div>
+         
         </Container>
-      </div>
+        
+        </div>  
+
+      
+        
+    
+      
     </React.Fragment>
   );
 }
-
-
 
 
 export default App;
