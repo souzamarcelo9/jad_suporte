@@ -22,6 +22,7 @@ import logoInsta from './content/imgs/logo-instagram-png-fundo-transparente9.png
 import food from './content/imgs/food_youtube.png'
 import bank from './content/imgs/m1bank_yout.png'
 import games from './content/imgs/loc_yout.png'
+import real_state from './content/imgs/REAL.png'
 import { ImageBackground, StyleSheet, Text, View } from "react-native"
 import {SafeAreaView} from 'react-native';
 //import Gallery from 'react-native-image-gallery';
@@ -32,7 +33,7 @@ import multivr from './content/imgs/food.mp4';
 //import {SocialIcon} from 'react-native-elements';
 import  {useEffect} from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
+//import Carousel, { autoplayPlugin } from 'react-responsive-carousel';
 var ReactN = require('react');
 var ReactDOM = require('react-dom');
 var Carousel = require('react-responsive-carousel').Carousel;
@@ -229,6 +230,10 @@ function App() {
                 <div>
                    <a href="https://www.youtube.com/watch?v=RTUPBXj7FGw&t=83s"><img alt="logcom" src={games} /><br /> <Text style={{color: 'blue'}}>{lang.produtos.text9}</Text></a>
                    <p className="legend">Locadora</p>
+                </div>
+                <div>
+                   <a href="https://www.youtube.com/watch?v=irfLctZSEAI"><img alt="logcom" src={real_state} /><br /> <Text style={{color: 'blue'}}>Imobiliário(Real State)</Text></a>
+                   <p className="legend">Imobiliário(Real State)</p>
                 </div>
           </Carousel>
          </div>
