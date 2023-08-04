@@ -216,7 +216,7 @@ function App() {
                     <p className="legend">E-comerce</p>
                 </div>
                 <div >
-                <a href="https://www.youtube.com/watch?v=boUf-wtlXMI"><img alt="logistica" src={logistic}/><br /> <Text style={{color: 'blue'}}>{lang.produtos.text6}</Text></a>
+                <a href="https://www.youtube.com/watch?v=M1r5T-QhuBI"><img alt="logistica" src={logistic}/><br /> <Text style={{color: 'blue'}}>{lang.produtos.text6}</Text></a>
                     <p className="legend">Logística</p>
                 </div>
                 <div >
