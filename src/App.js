@@ -23,6 +23,8 @@ import food from './content/imgs/food_youtube.png'
 import bank from './content/imgs/m1bank_yout.png'
 import games from './content/imgs/loc_yout.png'
 import real_state from './content/imgs/REAL.png'
+import petshop from './content/imgs/petshop.png'
+import psicologia from './content/imgs/psicologa.png'
 import { ImageBackground, StyleSheet, Text, View } from "react-native"
 import {SafeAreaView} from 'react-native';
 //import Gallery from 'react-native-image-gallery';
@@ -213,7 +215,11 @@ function App() {
                 </div>
                 <div >
                 <a href="https://www.youtube.com/watch?v=R5UJYPsgPpc"><img alt="loja" src={ecomerce}/><br /> <Text style={{color: 'blue'}}>{lang.produtos.text5}</Text></a>
-                    <p className="legend">E-comerce</p>
+                    <p className="legend">E-commerce</p>
+                </div>
+                <div>
+                <a href="https://youtu.be/TcflFrPPHjg"><img alt="petshop" src={petshop}/><br /> <Text style={{color: 'blue'}}>{lang.produtos.text10}</Text></a>
+                    <p className="legend">E-commerce Pet</p>
                 </div>
                 <div >
                 <a href="https://www.youtube.com/watch?v=M1r5T-QhuBI"><img alt="logistica" src={logistic}/><br /> <Text style={{color: 'blue'}}>{lang.produtos.text6}</Text></a>
@@ -234,6 +240,10 @@ function App() {
                 <div>
                    <a href="https://www.youtube.com/watch?v=irfLctZSEAI"><img alt="logcom" src={real_state} /><br /> <Text style={{color: 'blue'}}>Imobiliário(Real State)</Text></a>
                    <p className="legend">Imobiliário(Real State)</p>
+                </div>
+                <div>
+                   <a href="https://www.youtube.com/watch?v=REjmAhYdJ3I"><img alt="logcom" src={psicologia} /><br /> <Text style={{color: 'blue'}}>Psicóloga</Text></a>
+                   <p className="legend">Psicóloga</p>
                 </div>
           </Carousel>
          </div>

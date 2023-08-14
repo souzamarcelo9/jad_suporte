@@ -45,7 +45,8 @@ export default
         text6: 'Logística',
         text7: 'Ifood',
         text8: 'Banco Digital',
-        text9:'Locadora'      
+        text9:'Locadora',
+        text10:'Pet Shop'      
     }
 
 }

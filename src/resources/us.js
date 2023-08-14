@@ -44,7 +44,8 @@ export default
         text6: 'Logistics',
         text7: 'Ifood',
         text8: 'Digital Bank',
-        text9:'Games'  
+        text9:'Games',
+        text10:'PetShop'  
     }
    
 
