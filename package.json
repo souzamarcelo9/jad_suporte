@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "16.10.0"
+    "node": "16.x",
+    "npm": "8.x"
   },
   "dependencies": {
     "@babel/cli": "^7.1.2",
