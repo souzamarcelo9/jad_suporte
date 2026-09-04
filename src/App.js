@@ -13,6 +13,7 @@ import logoFacebook from './content/imgs/facebook-logo-3-1.png';
 import logoYoutube from './content/imgs/youtube-grey.png';
 import logoWapp from './content/imgs/wapp.png';
 import logoInsta from './content/imgs/logo-instagram-png-fundo-transparente9.png';
+import superJads from './content/imgs/super-jads.png';
 
 // Portfólio
 import financial from './content/imgs/info_recebimento.png';
@@ -36,7 +37,10 @@ import './content/css/App.css';
 function App() {
   const [langSelect, setLang] = useState(cookie.load('lang-c615') || 'pt');
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [heroReady, setHeroReady] = useState(false);
   const canvasRef = useRef(null);
+  const heroRef = useRef(null);
+  const charLayerRef = useRef(null);
 
   const lang = langSelect === 'pt' ? langPT : langUS;
   const prod = lang.produtos || {};
@@ -88,13 +92,16 @@ const isShortVideo = (url) => {
     const ctx = canvas.getContext('2d');
 
     let animationFrameId;
-    canvas.width = window.innerWidth;
-    canvas.height = 650;
+    const sizeCanvas = () => {
+      canvas.width = canvas.offsetWidth || window.innerWidth;
+      canvas.height = canvas.offsetHeight || 650;
+    };
+    sizeCanvas();
 
     const letters = '01JADS010101SYSTEMS0101';
     const fontSize = 14;
-    const columns = Math.floor(canvas.width / fontSize);
-    const drops = Array(columns).fill(1);
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = Array(columns).fill(1);
 
     const drawMatrix = () => {
       ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
@@ -118,13 +125,56 @@ const isShortVideo = (url) => {
     drawMatrix();
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
+      sizeCanvas();
+      columns = Math.floor(canvas.width / fontSize);
+      drops = Array(columns).fill(1);
     };
     window.addEventListener('resize', handleResize);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  // Linha do tempo de entrada do Hero (fallback: dispara em 900ms mesmo sem onLoad)
+  useEffect(() => {
+    const t = setTimeout(() => setHeroReady(true), 900);
+    return () => clearTimeout(t);
+  }, []);
+
+  // Parallax suave do Super JADS seguindo o mouse (desativado no mobile/touch)
+  useEffect(() => {
+    const hero = heroRef.current;
+    const layer = charLayerRef.current;
+    if (!hero || !layer) return;
+    if (window.matchMedia('(hover: none), (prefers-reduced-motion: reduce)').matches) return;
+
+    let raf = null;
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+
+    const onMove = (e) => {
+      const r = hero.getBoundingClientRect();
+      tx = ((e.clientX - r.left) / r.width - 0.5) * 26;
+      ty = ((e.clientY - r.top) / r.height - 0.5) * 16;
+      if (!raf) raf = requestAnimationFrame(loop);
+    };
+
+    const loop = () => {
+      cx += (tx - cx) * 0.06;
+      cy += (ty - cy) * 0.06;
+      layer.style.transform = 'translate3d(' + cx.toFixed(2) + 'px, ' + cy.toFixed(2) + 'px, 0)';
+      if (Math.abs(tx - cx) > 0.1 || Math.abs(ty - cy) > 0.1) {
+        raf = requestAnimationFrame(loop);
+      } else {
+        raf = null;
+      }
+    };
+
+    hero.addEventListener('mousemove', onMove);
+    return () => {
+      hero.removeEventListener('mousemove', onMove);
+      if (raf) cancelAnimationFrame(raf);
     };
   }, []);
 
@@ -202,21 +252,47 @@ const isShortVideo = (url) => {
       </Navbar>
 
       {/* HERO SECTION COM MATRIX E MÓDULO SLIDER */}
-      <header id="home" className="hero-section">
+      <header id="home" ref={heroRef} className={'hero-section' + (heroReady ? ' is-ready' : '')}>
         <canvas ref={canvasRef} className="matrix-canvas" />
+
+        {/* SUPER JADS — MASCOTE AO FUNDO */}
+        <div className="hero-character-layer" ref={charLayerRef} aria-hidden="true">
+          <div className="hero-character-aura"></div>
+          <div className="hero-character-wrap">
+            <img
+              src={superJads}
+              alt=""
+              className="hero-character"
+              onLoad={() => setHeroReady(true)}
+              draggable="false"
+            />
+            <span
+              className="hero-character-scan"
+              style={{
+                WebkitMaskImage: 'url(' + superJads + ')',
+                maskImage: 'url(' + superJads + ')'
+              }}
+            ></span>
+          </div>
+        </div>
+
+        {/* Véu para garantir leitura do texto sobre o personagem */}
+        <div className="hero-scrim" aria-hidden="true"></div>
+
         <div className="hero-overlay">
           <Container>
-            <div className="hero-content text-center animate-fade-in">
-              <div className="hero-logo-box">
-                <img alt="Logo JADS Suporte" src={logoLaranja} className="hero-logo-main animated-float" />
+            <div className="hero-content text-center">
+              <div className="hero-logo-box hero-reveal" style={{ '--d': '1.25s' }}>
+                <img alt="Logo JADS Suporte" src={logoLaranja} className="hero-logo-main" />
                 <div className="ambient-glow"></div>
               </div>
-              <h1 className="hero-title">Inovação, Suporte e Alta Tecnologia</h1>
-              <p className="hero-subtitle">Transformamos desafios corporativos em plataformas digitais escaláveis.</p>
+              <h1 className="hero-title hero-reveal" style={{ '--d': '1.6s' }}>Inovação, Suporte e Alta Tecnologia</h1>
+              <p className="hero-subtitle hero-reveal" style={{ '--d': '1.85s' }}>Transformamos desafios corporativos em plataformas digitais escaláveis.</p>
             </div>
 
             {/* SLIDER HERO */}
-            <div className="hero-carousel-wrapper animate-slide-up">
+            <div className="hero-reveal" style={{ '--d': '2.2s' }}>
+            <div className="hero-carousel-wrapper">
               <Carousel
                 showArrows={true}
                 showStatus={false}
@@ -238,6 +314,7 @@ const isShortVideo = (url) => {
                   </div>
                 ))}
               </Carousel>
+            </div>
             </div>
           </Container>
         </div>

@@ -19,7 +19,9 @@ export default
                 e com mais de 30 anos de idade.`,
         text4: `Atuamos em duas frentes: suporte total ao desenvolvedor e ao profissional funcional,
                 corrigindo erros, sugerindo implementações, e desenvolvemos aplicações customizadas
-                de acordo com o seu negócio,e-commerce, erp's, etc.Além disso oferecemos cursos diversos
+                de acordo com o seu negócio,e-commerce, erp's,arquitetura de sistemas,páginas de vendas e landing pages,
+                web scraping,automações,scripts, chatbots, NFE, E-social,etc. 
+                Além disso oferecemos cursos diversos
                 com orçamento abaixo do mercado, pois o nosso foco é sua especialização. Os cursos vão desde
                 linguagens de programação, lógica até cursos funcionais, operacionais para ERP's.`
                 ,

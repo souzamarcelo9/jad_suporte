@@ -17,9 +17,10 @@ export default
         best practices.`,
         text3: `With Senior professional staff, all with over 10 years of experience
               , certificates and over 30 years of age.`,
-        text4: `We work on two fronts: full support to the developer and functional professional, 
-        correcting errors, suggesting implementations, and we develop custom applications 
-        according to your business, e-commerce, ERP's, etc.`,
+        text4: `We operate on two fronts: providing full support to developers and functional specialists—fixing errors 
+        and suggesting implementations—and developing custom applications tailored to your business, 
+        including e-commerce solutions, ERPs, system architecture, sales pages and landing pages, 
+        web scraping, automation, scripts, chatbots, NFe, eSocial, and more.`,
     },
     ondeAtuamos: {
         text1: 'Here follows a brief presentation of our services, all with warranty:',
