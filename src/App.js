@@ -34,6 +34,12 @@ import langPT from './resources/pt';
 import langUS from './resources/us';
 import './content/css/App.css';
 
+/* Loop infinito do slider do Hero.
+   true  -> gira sem parar (a lib clona 1º e último item, então o 1º reaparece
+            depois do último; é o comportamento normal de carrossel infinito)
+   false -> mostra os 12 sistemas exatamente uma vez, sem repetição */
+const HERO_INFINITE = true;
+
 function App() {
   const [langSelect, setLang] = useState(cookie.load('lang-c615') || 'pt');
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -196,6 +202,23 @@ const isShortVideo = (url) => {
     };
   }, []);
 
+  // Marca o card central do slider pela posição real no DOM.
+  // Necessário porque, com infiniteLoop, a lib duplica o 1º e o último item
+  // reaproveitando o mesmo índice — o que fazia dois cards acenderem juntos.
+  useEffect(() => {
+    const root = heroRef.current;
+    if (!root) return;
+    const track = root.querySelector('.hero-slider .slider');
+    if (!track) return;
+
+    const offset = HERO_INFINITE ? 1 : 0;
+    const target = heroSlide + offset;
+
+    Array.from(track.children).forEach((li, i) => {
+      li.classList.toggle('is-center', i === target);
+    });
+  }, [heroSlide, slidePercent, langSelect]);
+
   // Intersection Observer para disparar animações no Scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -337,7 +360,7 @@ const isShortVideo = (url) => {
                   showStatus={false}
                   showThumbs={false}
                   showIndicators={true}
-                  infiniteLoop={true}
+                  infiniteLoop={HERO_INFINITE}
                   autoPlay={true}
                   interval={4500}
                   transitionTime={650}
@@ -384,7 +407,7 @@ const isShortVideo = (url) => {
                   {portfolioItems.map((item, idx) => (
                     <div
                       key={idx}
-                      className={'hero-slide' + (idx === heroSlide ? ' is-active' : '')}
+                      className="hero-slide"
                       onClick={() => setSelectedVideo(item.videoUrl)}
                     >
                       <div className="hero-slide-card">
