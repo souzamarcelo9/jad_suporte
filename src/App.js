@@ -38,6 +38,8 @@ function App() {
   const [langSelect, setLang] = useState(cookie.load('lang-c615') || 'pt');
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [heroReady, setHeroReady] = useState(false);
+  const [heroSlide, setHeroSlide] = useState(0);
+  const [slidePercent, setSlidePercent] = useState(24);
   const canvasRef = useRef(null);
   const heroRef = useRef(null);
   const charLayerRef = useRef(null);
@@ -137,6 +139,22 @@ const isShortVideo = (url) => {
     };
   }, []);
 
+  // Largura de cada card do slider conforme a viewport (centerMode)
+  useEffect(() => {
+    const calc = () => {
+      const w = window.innerWidth;
+      if (w >= 1600) setSlidePercent(21);
+      else if (w >= 1400) setSlidePercent(24);
+      else if (w >= 1200) setSlidePercent(28);
+      else if (w >= 992) setSlidePercent(34);
+      else if (w >= 768) setSlidePercent(48);
+      else setSlidePercent(84);
+    };
+    calc();
+    window.addEventListener('resize', calc);
+    return () => window.removeEventListener('resize', calc);
+  }, []);
+
   // Linha do tempo de entrada do Hero (fallback: dispara em 900ms mesmo sem onLoad)
   useEffect(() => {
     const t = setTimeout(() => setHeroReady(true), 900);
@@ -200,28 +218,30 @@ const isShortVideo = (url) => {
   }, []);
 
   const portfolioItems = [
-    { title: prod.text3 || 'Financeiro', img: financial, videoUrl: 'https://youtu.be/uRGF5LH_EUowatch?v=uRGF5LH_EUo', tag: 'Sistemas Financeiros' },
-    { title: prod.text4 || 'Médico', img: medico, videoUrl: 'https://www.youtube.com/embed/0JO28hJSguk', tag: 'Saúde & Gestão' },
-    { title: prod.text5 || 'E-commerce', img: ecomerce, videoUrl: 'https://www.youtube.com/embed/R5UJYPsgPpc', tag: 'Vendas Online' },
-    { title: prod.text10 || 'E-commerce Pet', img: petshop, videoUrl: 'https://www.youtube.com/embed/TcflFrPPHjg', tag: 'Petcare Platform' },
-    { title: prod.text6 || 'Logística', img: logistic, videoUrl: 'https://www.youtube.com/embed/M1r5T-QhuBI', tag: 'Tracking & Entregas' },
-    { title: prod.text7 || 'Restaurante / Food', img: food, videoUrl: 'https://www.youtube.com/embed/KzPmznbQ8BY', tag: 'Cardápios & Delivery' },    
-    { title: prod.text12 || 'Painel Financeiro', img: banco, videoUrl: 'https://youtu.be/7fyol4HwB0Q', tag: 'Planilha de Luxo' },    
-    { title: prod.text11 || 'Sistemas Empresariais', img: erp, videoUrl: 'https://youtu.be/8I7JQi0oy-4', tag: 'ERP' },
+    { title: prod.text3 || 'Financeiro', img: financial, videoUrl: 'https://youtu.be/uRGF5LH_EUowatch?v=uRGF5LH_EUo', tag: 'Sistemas Financeiros', desc: 'Controle e crescimento' },
+    { title: prod.text4 || 'Médico', img: medico, videoUrl: 'https://www.youtube.com/embed/0JO28hJSguk', tag: 'Saúde & Gestão', desc: 'Soluções para clínicas e consultórios' },
+    { title: prod.text5 || 'E-commerce', img: ecomerce, videoUrl: 'https://www.youtube.com/embed/R5UJYPsgPpc', tag: 'E-commerce', desc: 'Vendas online de alto desempenho' },
+    { title: prod.text10 || 'E-commerce Pet', img: petshop, videoUrl: 'https://www.youtube.com/embed/TcflFrPPHjg', tag: 'Petcare Platform', desc: 'Loja e agenda para pet shops' },
+    { title: prod.text6 || 'Logística', img: logistic, videoUrl: 'https://www.youtube.com/embed/M1r5T-QhuBI', tag: 'Logística', desc: 'Rastreio e gestão de entregas' },
+    { title: prod.text7 || 'Restaurante / Food', img: food, videoUrl: 'https://www.youtube.com/embed/KzPmznbQ8BY', tag: 'Food & Delivery', desc: 'Cardápios digitais e pedidos' },    
+    { title: prod.text12 || 'Painel Financeiro', img: banco, videoUrl: 'https://youtu.be/7fyol4HwB0Q', tag: 'Painel Financeiro', desc: 'Indicadores em tempo real' },    
+    { title: prod.text11 || 'Sistemas Empresariais', img: erp, videoUrl: 'https://youtu.be/8I7JQi0oy-4', tag: 'ERP Empresarial', desc: 'Gestão integrada do negócio' },
     // { title: prod.text9 || 'Locadora / Games', img: games, videoUrl: 'https://www.youtube.com/embed/RTUPBXj7FGw', tag: 'Entertainment' },
-    { title: 'Imobiliário (Real Estate)', img: real_state, videoUrl: 'https://youtu.be/JRmWiv-TFE8', tag: 'Gestão de Imóveis' },
-    { title: 'Psicologia & Clínicas', img: psicologia, videoUrl: 'https://www.youtube.com/embed/REjmAhYdJ3I', tag: 'Agendamentos' },
+    { title: 'Imobiliário (Real Estate)', img: real_state, videoUrl: 'https://youtu.be/JRmWiv-TFE8', tag: 'Imobiliário', desc: 'Carteira e gestão de imóveis' },
+    { title: 'Psicologia & Clínicas', img: psicologia, videoUrl: 'https://www.youtube.com/embed/REjmAhYdJ3I', tag: 'Psicologia & Clínicas', desc: 'Agendamentos e prontuários' },
     { 
       title: 'Gerenciamento de obras', 
       img: viska_mobile, 
       videoUrl: 'https://youtube.com/shorts/yky1zPI-FrU', 
-      tag: 'Aplicativo empresarial' 
+      tag: 'Gestão de Obras',
+      desc: 'Aplicativo empresarial em campo' 
     },
     { 
       title: 'Fintech', 
       img: bank, 
       videoUrl: 'https://www.youtube.com/shorts/sjko7BLkrTw', 
-      tag: 'Fintech Bancária' 
+      tag: 'Fintech Bancária',
+      desc: 'Contas, cartões e transações' 
     }
   ];
 
@@ -255,6 +275,9 @@ const isShortVideo = (url) => {
       <header id="home" ref={heroRef} className={'hero-section' + (heroReady ? ' is-ready' : '')}>
         <canvas ref={canvasRef} className="matrix-canvas" />
 
+        {/* Névoa dourada da arte */}
+        <div className="hero-mist" aria-hidden="true"></div>
+
         {/* SUPER JADS — MASCOTE AO FUNDO */}
         <div className="hero-character-layer" ref={charLayerRef} aria-hidden="true">
           <div className="hero-character-aura"></div>
@@ -279,42 +302,124 @@ const isShortVideo = (url) => {
         {/* Véu para garantir leitura do texto sobre o personagem */}
         <div className="hero-scrim" aria-hidden="true"></div>
 
+        {/* Palavras-chave decorativas na lateral direita */}
+        <div className="hero-keywords hero-reveal" style={{ '--d': '2.4s' }} aria-hidden="true">
+          <span>Ideias</span>
+          <span>Código</span>
+          <span>Soluções</span>
+          <span>Resultados</span>
+        </div>
+
+        {/* Assinatura no canto inferior direito */}
+        <div className="hero-signature hero-reveal" style={{ '--d': '2.9s' }} aria-hidden="true">
+          Tecnologia<br />que impulsiona<br />o seu negócio.
+        </div>
+
         <div className="hero-overlay">
-          <Container>
+          <Container fluid className="hero-container">
             <div className="hero-content text-center">
-              <div className="hero-logo-box hero-reveal" style={{ '--d': '1.25s' }}>
-                <img alt="Logo JADS Suporte" src={logoLaranja} className="hero-logo-main" />
-                <div className="ambient-glow"></div>
+              <div className="hero-brand hero-reveal" style={{ '--d': '1.25s' }}>
+                <img alt="JADS Suporte" src={logoLaranja} className="hero-wordmark" />
+                <span className="hero-divider"></span>
               </div>
               <h1 className="hero-title hero-reveal" style={{ '--d': '1.6s' }}>Inovação, Suporte e Alta Tecnologia</h1>
               <p className="hero-subtitle hero-reveal" style={{ '--d': '1.85s' }}>Transformamos desafios corporativos em plataformas digitais escaláveis.</p>
             </div>
 
-            {/* SLIDER HERO */}
+            {/* SLIDER HERO — CARDS MÚLTIPLOS COM DESTAQUE CENTRAL */}
             <div className="hero-reveal" style={{ '--d': '2.2s' }}>
-            <div className="hero-carousel-wrapper">
-              <Carousel
-                showArrows={true}
-                showStatus={false}
-                showThumbs={false}
-                infiniteLoop={true}
-                autoPlay={true}
-                interval={4500}
-                transitionTime={700}
-                stopOnHover={true}
-              >
-                {portfolioItems.slice(0, 10).map((item, idx) => (
-                  <div key={idx} className="carousel-slide-item" onClick={() => setSelectedVideo(item.videoUrl)}>
-                    <img src={item.img} alt={item.title} />
-                    <div className="carousel-glass-caption">
-                      <h4>{item.title}</h4>
-                      <span className="badge-tag">{item.tag}</span>
-                      <p className="click-to-watch">▶ Clique para assistir a demonstração</p>
+              <div className="hero-slider">
+                <Carousel
+                  centerMode={true}
+                  centerSlidePercentage={slidePercent}
+                  selectedItem={heroSlide}
+                  onChange={(i) => setHeroSlide(i)}
+                  showStatus={false}
+                  showThumbs={false}
+                  showIndicators={true}
+                  infiniteLoop={true}
+                  autoPlay={true}
+                  interval={4500}
+                  transitionTime={650}
+                  stopOnHover={true}
+                  swipeable={true}
+                  emulateTouch={true}
+                  renderArrowPrev={(onClickHandler, hasPrev) => (
+                    <button
+                      type="button"
+                      className="hero-arrow hero-arrow-prev"
+                      onClick={onClickHandler}
+                      aria-label="Anterior"
+                    >
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="15 18 9 12 15 6" />
+                      </svg>
+                    </button>
+                  )}
+                  renderArrowNext={(onClickHandler, hasNext) => (
+                    <button
+                      type="button"
+                      className="hero-arrow hero-arrow-next"
+                      onClick={onClickHandler}
+                      aria-label="Próximo"
+                    >
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </button>
+                  )}
+                  renderIndicator={(onClickHandler, isSelected, index, label) => (
+                    <li
+                      className={'hero-dot' + (isSelected ? ' is-active' : '')}
+                      onClick={onClickHandler}
+                      onKeyDown={onClickHandler}
+                      value={index}
+                      key={index}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={label}
+                    />
+                  )}
+                >
+                  {portfolioItems.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className={'hero-slide' + (idx === heroSlide ? ' is-active' : '')}
+                      onClick={() => setSelectedVideo(item.videoUrl)}
+                    >
+                      <div className="hero-slide-card">
+                        <div className="hero-slide-thumb">
+                          <img src={item.img} alt={item.tag || item.title} />
+                        </div>
+                        <div className="hero-slide-body">
+                          <h4>{item.tag || item.title}</h4>
+                          <p>{item.desc || item.title}</p>
+                          <span className="hero-demo-btn">
+                            <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true">
+                              <polygon points="5 3 19 12 5 21" />
+                            </svg>
+                            Assistir Demo
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </Carousel>
+                  ))}
+                </Carousel>
+              </div>
             </div>
+
+            {/* CHAMADA DE SCROLL */}
+            <div
+              className="hero-scroll-cue hero-reveal"
+              style={{ '--d': '2.7s' }}
+              onClick={() => scrollToSection('quem-somos')}
+              role="button"
+              tabIndex={0}
+            >
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 16 18 9" />
+              </svg>
+              <span>Descubra mais</span>
             </div>
           </Container>
         </div>

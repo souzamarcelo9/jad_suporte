@@ -141,8 +141,8 @@ body {
   position: relative;
   min-height: 100vh;
   /* Aumentado o padding-top para descer a logo e evitar corte com a navbar fixa */
-  padding-top: 150px;
-  padding-bottom: 80px;
+  padding-top: 120px;
+  padding-bottom: 40px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -247,62 +247,6 @@ body {
     opacity: 0.4;
     transform: translate(-50%, -50%) scale(1);
   }
-}
-
-/* ==================== CAROUSEL DO HERO ==================== */
-
-.hero-carousel-wrapper {
-  max-width: 860px;
-  margin: 0 auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), 0 0 30px rgba(0, 255, 102, 0.2);
-  border: 1px solid var(--border-glass);
-  background: #111;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.hero-carousel-wrapper:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 255, 102, 0.35);
-}
-
-.carousel-slide-item {
-  position: relative;
-  cursor: pointer;
-}
-
-.carousel-slide-item img {
-  height: 420px;
-  object-fit: cover;
-}
-
-.carousel-glass-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(10, 12, 16, 0.88);
-  backdrop-filter: blur(12px);
-  padding: 18px;
-  color: #fff;
-  border-top: 1px solid var(--border-glass);
-}
-
-.badge-tag {
-  background: var(--dark-green);
-  color: var(--primary-green);
-  padding: 5px 12px;
-  border-radius: 14px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.click-to-watch {
-  font-size: 13px;
-  color: var(--primary-green);
-  margin-top: 8px;
-  margin-bottom: 0;
 }
 
 /* ==================== SEÇÕES ==================== */
@@ -570,7 +514,6 @@ body {
 @media (max-width: 991px) {
   .hero-title { font-size: 2.1rem; }
   .social-links-box { justify-content: flex-start; margin-top: 15px; }
-  .carousel-slide-item img { height: 280px; }
 }
 
 /* ==================================================================
@@ -624,9 +567,9 @@ body {
 
 .hero-character-wrap {
   position: absolute;
-  left: -3%;
-  bottom: -4%;
-  height: 88%;
+  left: 0.5%;
+  top: 0;
+  height: 76%;
   aspect-ratio: 550 / 612;
   opacity: 0;
   transform: translate3d(-70px, 18px, 0) scale(1.07);
@@ -658,12 +601,12 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: left bottom;
+  object-position: left top;
   display: block;
   user-select: none;
   /* base do fade: o personagem "nasce" da escuridao */
-  -webkit-mask-image: linear-gradient(to bottom, #000 62%, rgba(0, 0, 0, 0) 100%);
-  mask-image: linear-gradient(to bottom, #000 62%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 74%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, #000 74%, rgba(0, 0, 0, 0) 100%);
 }
 
 .hero-section.is-ready .hero-character {
@@ -688,8 +631,8 @@ body {
 /* Aura de energia atras do personagem */
 .hero-character-aura {
   position: absolute;
-  left: 8%;
-  bottom: 12%;
+  left: 6%;
+  top: 14%;
   width: 46vh;
   height: 46vh;
   max-width: 620px;
@@ -817,4 +760,361 @@ body {
     transform: none;
   }
   .hero-character-scan { display: none; }
+}
+
+
+/* ==================================================================
+   HERO — MARCA, SLIDER DE CARDS E DETALHES DA ARTE
+   ================================================================== */
+
+.hero-container {
+  position: relative;
+  max-width: 1760px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Conteúdo levemente deslocado para a direita, liberando o mascote */
+.hero-content {
+  margin-top: 4vh;
+}
+
+@media (min-width: 1200px) {
+  .hero-content {
+    padding-left: 8%;
+  }
+}
+
+/* ---------- Marca (wordmark estático + linha divisória) ---------- */
+
+.hero-brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.hero-wordmark {
+  width: clamp(200px, 21vw, 330px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 26px rgba(0, 0, 0, 0.85));
+}
+
+.hero-divider {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 20px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 123, 0, 0) 0%,
+    rgba(255, 123, 0, 0.55) 22%,
+    #ffb057 50%,
+    rgba(255, 123, 0, 0.55) 78%,
+    rgba(255, 123, 0, 0) 100%
+  );
+  box-shadow: 0 0 16px rgba(255, 140, 20, 0.6);
+}
+
+.hero-title {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-subtitle {
+  margin-bottom: 40px;
+}
+
+/* ---------- SLIDER DE CARDS ---------- */
+
+.hero-slider {
+  position: relative;
+  padding: 0 70px;
+}
+
+/* Reset das regras internas da lib */
+.hero-slider .carousel-root,
+.hero-slider .carousel {
+  overflow: visible;
+}
+
+.hero-slider .carousel .slider-wrapper {
+  overflow: visible;
+}
+
+.hero-slider .carousel .slide {
+  background: transparent;
+  padding: 0 9px;
+  box-sizing: border-box;
+  text-align: left;
+  min-width: auto;
+}
+
+.hero-slider .carousel .slide img {
+  width: 100%;
+  vertical-align: top;
+  pointer-events: none;
+}
+
+.hero-slider .carousel .control-dots {
+  position: static;
+  margin: 22px 0 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+}
+
+/* Card */
+.hero-slide {
+  cursor: pointer;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+  transform: scale(0.93);
+  opacity: 0.55;
+}
+
+.hero-slide.is-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.hero-slide-card {
+  background: rgba(14, 19, 26, 0.62);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-slide.is-active .hero-slide-card {
+  border-color: rgba(190, 235, 255, 0.35);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.7), 0 0 26px rgba(120, 210, 255, 0.18);
+}
+
+.hero-slide-thumb {
+  height: 150px;
+  overflow: hidden;
+  background: #0b0f14;
+}
+
+.hero-slide-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-slide:hover .hero-slide-thumb img {
+  transform: scale(1.07);
+}
+
+.hero-slide-body {
+  padding: 16px 18px 18px;
+}
+
+.hero-slide-body h4 {
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px;
+  line-height: 1.25;
+}
+
+.hero-slide-body p {
+  font-size: 0.83rem;
+  color: #9ca3af;
+  margin: 0 0 14px;
+  line-height: 1.4;
+  min-height: 2.3em;
+}
+
+.hero-demo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffb15c;
+  background: rgba(255, 123, 0, 0.1);
+  border: 1px solid rgba(255, 123, 0, 0.45);
+  transition: all 0.28s ease;
+}
+
+.hero-slide:hover .hero-demo-btn {
+  background: var(--accent-orange);
+  border-color: var(--accent-orange);
+  color: #12100c;
+  box-shadow: 0 0 18px rgba(255, 123, 0, 0.5);
+}
+
+/* Setas circulares */
+.hero-arrow {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 14, 20, 0.45);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  color: #e5e7eb;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.28s ease;
+}
+
+.hero-arrow:hover {
+  background: rgba(0, 255, 102, 0.14);
+  border-color: var(--primary-green);
+  color: var(--primary-green);
+  box-shadow: 0 0 18px rgba(0, 255, 102, 0.35);
+}
+
+.hero-arrow-prev { left: 6px; }
+.hero-arrow-next { right: 6px; }
+
+/* Indicadores */
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.hero-dot:hover { background: rgba(255, 255, 255, 0.6); }
+
+.hero-dot.is-active {
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* ---------- Chamada de scroll ---------- */
+
+.hero-scroll-cue {
+  margin-top: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #e5e7eb;
+  cursor: pointer;
+  user-select: none;
+}
+
+.hero-scroll-cue span {
+  font-size: 0.74rem;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: #cbd5e1;
+}
+
+.hero-scroll-cue svg {
+  animation: cueBounce 2.2s ease-in-out infinite;
+}
+
+.hero-scroll-cue:hover { color: var(--primary-green); }
+.hero-scroll-cue:hover span { color: var(--primary-green); }
+
+@keyframes cueBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.8; }
+  50%      { transform: translateY(7px); opacity: 1; }
+}
+
+/* ---------- Detalhes decorativos da arte ---------- */
+
+.hero-keywords {
+  position: absolute;
+  right: 2.2%;
+  top: 30%;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.hero-keywords span {
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(0, 255, 102, 0.62);
+  text-shadow: 0 0 12px rgba(0, 255, 102, 0.35);
+}
+
+.hero-signature {
+  position: absolute;
+  right: 2.2%;
+  bottom: 4%;
+  z-index: 4;
+  text-align: right;
+  font-size: 0.8rem;
+  letter-spacing: 2.6px;
+  line-height: 1.9;
+  text-transform: uppercase;
+  color: rgba(180, 200, 190, 0.32);
+  pointer-events: none;
+}
+
+/* ---------- Névoa dourada no canto inferior esquerdo ---------- */
+
+.hero-mist {
+  position: absolute;
+  left: -6%;
+  bottom: -12%;
+  width: 55vw;
+  height: 45vh;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 30% 70%,
+    rgba(255, 170, 40, 0.16) 0%,
+    rgba(255, 140, 20, 0.07) 35%,
+    rgba(0, 0, 0, 0) 68%);
+  filter: blur(30px);
+  opacity: 0;
+}
+
+.hero-section.is-ready .hero-mist {
+  animation: auraIn 2s ease-out 0.3s forwards;
+}
+
+/* ---------- Responsivo do slider e detalhes ---------- */
+
+@media (max-width: 1399px) {
+  .hero-keywords { display: none; }
+}
+
+@media (max-width: 1199px) {
+  .hero-signature { display: none; }
+  .hero-slider { padding: 0 56px; }
+}
+
+@media (max-width: 767px) {
+  .hero-slider { padding: 0 12px; }
+  .hero-arrow { width: 38px; height: 38px; top: 38%; }
+  .hero-arrow-prev { left: -6px; }
+  .hero-arrow-next { right: -6px; }
+  .hero-slide { transform: scale(0.96); opacity: 0.7; }
+  .hero-slide-thumb { height: 130px; }
+  .hero-content { margin-top: 2vh; }
+  .hero-subtitle { margin-bottom: 28px; }
+  .hero-mist { display: none; }
 }
