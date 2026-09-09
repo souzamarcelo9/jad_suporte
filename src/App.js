@@ -5,7 +5,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import cookie from 'react-cookies';
 
 // Logos e Imagens
-import logoLaranja from './content/imgs/logo-branca-laranja.png';
 import logoPB from './content/imgs/logo-preto-branco.png';
 import icoBR from './content/imgs/flag-ico-br.png';
 import icoUS from './content/imgs/flag-ico-us.png';
@@ -342,7 +341,10 @@ const isShortVideo = (url) => {
           <Container fluid className="hero-container">
             <div className="hero-content text-center">
               <div className="hero-brand hero-reveal" style={{ '--d': '1.25s' }}>
-                <img alt="JADS Suporte" src={logoLaranja} className="hero-wordmark" />
+                <p className="hero-wordmark">
+                  J<span className="hero-wordmark-a">A</span>DS
+                </p>
+                <p className="hero-wordmark-sub">Suporte</p>
                 <span className="hero-divider"></span>
               </div>
               <h1 className="hero-title hero-reveal" style={{ '--d': '1.6s' }}>Inovação, Suporte e Alta Tecnologia</h1>

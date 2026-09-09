@@ -138,10 +138,13 @@ body {
 /* ==================== HERO & MATRIX ==================== */
 
 .hero-section {
+  /* --nav-h e medido em runtime no App.js; --char-h controla o tamanho do robo */
+  --nav-h: 96px;
+  --char-h: 96%;
   position: relative;
   min-height: 100vh;
   /* Aumentado o padding-top para descer a logo e evitar corte com a navbar fixa */
-  padding-top: 120px;
+  padding-top: calc(var(--nav-h) + 22px);
   padding-bottom: 40px;
   display: flex;
   align-items: center;
@@ -559,7 +562,10 @@ body {
 
 .hero-character-layer {
   position: absolute;
-  inset: 0;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 2;
   pointer-events: none;
   overflow: hidden;
@@ -567,9 +573,9 @@ body {
 
 .hero-character-wrap {
   position: absolute;
-  left: 0.5%;
+  left: -1%;
   top: 0;
-  height: 76%;
+  height: var(--char-h);
   aspect-ratio: 550 / 612;
   opacity: 0;
   transform: translate3d(-70px, 18px, 0) scale(1.07);
@@ -605,8 +611,8 @@ body {
   display: block;
   user-select: none;
   /* base do fade: o personagem "nasce" da escuridao */
-  -webkit-mask-image: linear-gradient(to bottom, #000 74%, rgba(0, 0, 0, 0) 100%);
-  mask-image: linear-gradient(to bottom, #000 74%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, #000 82%, rgba(0, 0, 0, 0) 100%);
 }
 
 .hero-section.is-ready .hero-character {
@@ -713,7 +719,7 @@ body {
 /* ---------- Responsivo ---------- */
 
 @media (max-width: 1199px) {
-  .hero-character-wrap { height: 72%; left: -12%; opacity: 0; }
+  .hero-character-wrap { height: 84%; left: -10%; opacity: 0; }
   .hero-character-aura { width: 34vh; height: 34vh; }
 }
 
@@ -795,17 +801,40 @@ body {
 }
 
 .hero-wordmark {
-  width: clamp(200px, 21vw, 330px);
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 6px 26px rgba(0, 0, 0, 0.85));
+  margin: 0;
+  font-size: clamp(2.7rem, 5.6vw, 5.3rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.9);
+}
+
+.hero-wordmark-a {
+  color: var(--accent-orange);
+  display: inline-block;
+  transform: skewX(-7deg);
+  text-shadow: 0 0 26px rgba(255, 123, 0, 0.55);
+}
+
+.hero-wordmark-sub {
+  margin: 6px 0 0 0;
+  font-size: clamp(0.85rem, 1.5vw, 1.45rem);
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  /* compensa o espaco extra que o letter-spacing deixa a direita */
+  text-indent: 0.5em;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.9);
 }
 
 .hero-divider {
   display: block;
   width: 100%;
   height: 2px;
-  margin-top: 20px;
+  margin-top: 22px;
   border-radius: 2px;
   background: linear-gradient(
     90deg,
@@ -858,6 +887,14 @@ body {
   vertical-align: top;
   pointer-events: none;
 }
+
+.hero-slider .carousel.carousel-slider {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-slider .carousel .slider-wrapper { order: 1; }
+.hero-slider .carousel .control-dots  { order: 2; }
 
 .hero-slider .carousel .control-dots {
   position: static;
