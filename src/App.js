@@ -20,7 +20,7 @@ import medico from './content/imgs/medicon_youtube.png';
 import ecomerce from './content/imgs/e-commerce.png';
 import petshop from './content/imgs/petshop.png';
 import logistic from './content/imgs/logistica_youtube.png';
-import food from './content/imgs/food_youtube.png';
+import food from './content/imgs/cardapio_checkout.png';
 import bank from './content/imgs/m1bank_yout.png';
 import games from './content/imgs/loc_yout.png';
 import real_state from './content/imgs/REAL.png';
@@ -245,7 +245,7 @@ const isShortVideo = (url) => {
     { title: prod.text5 || 'E-commerce', img: ecomerce, videoUrl: 'https://www.youtube.com/embed/R5UJYPsgPpc', tag: 'E-commerce', desc: 'Vendas online de alto desempenho' },
     { title: prod.text10 || 'E-commerce Pet', img: petshop, videoUrl: 'https://www.youtube.com/embed/TcflFrPPHjg', tag: 'Petcare Platform', desc: 'Loja e agenda para pet shops' },
     { title: prod.text6 || 'Logística', img: logistic, videoUrl: 'https://www.youtube.com/embed/M1r5T-QhuBI', tag: 'Logística', desc: 'Rastreio e gestão de entregas' },
-    { title: prod.text7 || 'Restaurante / Food', img: food, videoUrl: 'https://www.youtube.com/embed/KzPmznbQ8BY', tag: 'Food & Delivery', desc: 'Cardápios digitais e pedidos' },    
+    { title: prod.text7 || 'Restaurante / Food', img: food, videoUrl: 'https://www.youtube.com/shorts/RCL4pnKWKI8', tag: 'Food & Delivery', desc: 'Cardápios digitais e pedidos' },    
     { title: prod.text12 || 'Painel Financeiro', img: banco, videoUrl: 'https://youtu.be/7fyol4HwB0Q', tag: 'Painel Financeiro', desc: 'Indicadores em tempo real' },    
     { title: prod.text11 || 'Sistemas Empresariais', img: erp, videoUrl: 'https://youtu.be/8I7JQi0oy-4', tag: 'ERP Empresarial', desc: 'Gestão integrada do negócio' },
     // { title: prod.text9 || 'Locadora / Games', img: games, videoUrl: 'https://www.youtube.com/embed/RTUPBXj7FGw', tag: 'Entertainment' },
