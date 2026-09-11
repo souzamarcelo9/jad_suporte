@@ -264,7 +264,7 @@ const isShortVideo = (url) => {
       img: pricejads, 
       videoUrl: 'https://www.youtube.com/watch?v=yYlCS-UFu6s', 
       tag: 'Restaurantes e Lanchonetes',
-      desc: 'Gestão de Restaurante e Lanchonete' 
+      desc: 'Precificação,custos e vendas' 
     },
     
     { 
