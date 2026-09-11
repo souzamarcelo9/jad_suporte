@@ -13,6 +13,7 @@ import logoYoutube from './content/imgs/youtube-grey.png';
 import logoWapp from './content/imgs/wapp.png';
 import logoInsta from './content/imgs/logo-instagram-png-fundo-transparente9.png';
 import superJads from './content/imgs/super-jads.png';
+import pricejads from './content/imgs/thumb_jadsprice.jpeg'
 
 // Portfólio
 import financial from './content/imgs/info_recebimento.png';
@@ -244,7 +245,7 @@ const isShortVideo = (url) => {
     { title: prod.text4 || 'Médico', img: medico, videoUrl: 'https://www.youtube.com/embed/0JO28hJSguk', tag: 'Saúde & Gestão', desc: 'Soluções para clínicas e consultórios' },
     { title: prod.text5 || 'E-commerce', img: ecomerce, videoUrl: 'https://www.youtube.com/embed/R5UJYPsgPpc', tag: 'E-commerce', desc: 'Vendas online de alto desempenho' },
     { title: prod.text10 || 'E-commerce Pet', img: petshop, videoUrl: 'https://www.youtube.com/embed/TcflFrPPHjg', tag: 'Petcare Platform', desc: 'Loja e agenda para pet shops' },
-    { title: prod.text6 || 'Logística', img: logistic, videoUrl: 'https://www.youtube.com/embed/M1r5T-QhuBI', tag: 'Logística', desc: 'Rastreio e gestão de entregas' },
+    { title: prod.text6 || 'Logística', img: logistic, videoUrl: 'https://www.youtube.com/watch?v=WJXSHYC05S4', tag: 'Logística', desc: 'Rastreio e gestão de entregas' },
     { title: prod.text7 || 'Restaurante / Food', img: food, videoUrl: 'https://www.youtube.com/shorts/RCL4pnKWKI8', tag: 'Food & Delivery', desc: 'Cardápios digitais e pedidos' },    
     { title: prod.text12 || 'Painel Financeiro', img: banco, videoUrl: 'https://youtu.be/7fyol4HwB0Q', tag: 'Painel Financeiro', desc: 'Indicadores em tempo real' },    
     { title: prod.text11 || 'Sistemas Empresariais', img: erp, videoUrl: 'https://youtu.be/8I7JQi0oy-4', tag: 'ERP Empresarial', desc: 'Gestão integrada do negócio' },
@@ -258,6 +259,14 @@ const isShortVideo = (url) => {
       tag: 'Gestão de Obras',
       desc: 'Aplicativo empresarial em campo' 
     },
+    { 
+      title: 'Precificação,custos e vendas', 
+      img: pricejads, 
+      videoUrl: 'https://www.youtube.com/watch?v=yYlCS-UFu6s', 
+      tag: 'Restaurantes e Lanchonetes',
+      desc: 'Precificação de alimentos e vendas' 
+    },
+    
     { 
       title: 'Fintech', 
       img: bank, 
