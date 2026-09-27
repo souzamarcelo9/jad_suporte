@@ -29,6 +29,7 @@ import psicologia from './content/imgs/psicologa.png';
 import erp from './content/imgs/Erp2.png';
 import viska_mobile from './content/imgs/viska_mobile_cover.png';
 import banco from './content/imgs/painel_financ.png';
+import clinicaia from './content/imgs/clinica_medica_inteligente.jpeg'
 
 import langPT from './resources/pt';
 import langUS from './resources/us';
@@ -241,6 +242,13 @@ const isShortVideo = (url) => {
   }, []);
 
   const portfolioItems = [
+    { 
+      title: 'Doctor JADS - Prontuário Eletrônico', 
+      img: clinicaia, 
+      videoUrl: 'https://www.youtube.com/watch?v=yPsy3gn5G2U&t=51s', 
+      tag: 'Consultório,Clínicas Médicas',
+      desc: 'Prontuário Eletrônico com IA' 
+    },
     { title: prod.text3 || 'Financeiro', img: financial, videoUrl: 'https://youtu.be/uRGF5LH_EUowatch?v=uRGF5LH_EUo', tag: 'Sistemas Financeiros', desc: 'Controle e crescimento' },
     { title: prod.text4 || 'Médico', img: medico, videoUrl: 'https://www.youtube.com/embed/0JO28hJSguk', tag: 'Saúde & Gestão', desc: 'Soluções para clínicas e consultórios' },
     { title: prod.text5 || 'E-commerce', img: ecomerce, videoUrl: 'https://www.youtube.com/embed/R5UJYPsgPpc', tag: 'E-commerce', desc: 'Vendas online de alto desempenho' },
